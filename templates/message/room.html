@@ -6,6 +6,8 @@
     <title>Chat Room</title>
 </head>
 <body>
+    <a href="http://127.0.0.1:8000/message/">インデックス</a>
+    <br>
     <textarea id="chat-log" cols="100" rows="20"></textarea><br/>
     <input id="chat-message-input" type="text" size="100"/><br/>
     <input id="chat-message-submit" type="button" value="Send"/>
@@ -19,6 +21,7 @@
 
     chatSocket.onmessage = function(e) {
         var data = JSON.parse(e.data);
+        // console.log(data);
         var message = data['message'];
         document.querySelector('#chat-log').value += (message + '\n');
     };
